@@ -3,11 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | WebGL_to_export</title>
+    <title>Unity WebGL Player | soyImbecil</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <style>
-      @import url("./TemplateData/style.css");
-  </style>
+    <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -22,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">WebGL_to_export</div>
+        <div id="unity-build-title">soyImbecil</div>
       </div>
     </div>
     <script>
@@ -58,14 +56,14 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/WebGL Builds.loader.js";
+      var loaderUrl = buildUrl + "/test.loader.js";
       var config = {
-        dataUrl: buildUrl + "/WebGL Builds.data.gz",
-        frameworkUrl: buildUrl + "/WebGL Builds.framework.js.gz",
-        codeUrl: buildUrl + "/WebGL Builds.wasm.gz",
+        dataUrl: buildUrl + "/test.data.unityweb",
+        frameworkUrl: buildUrl + "/test.framework.js.unityweb",
+        codeUrl: buildUrl + "/test.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "WebGL_to_export",
+        productName: "soyImbecil",
         productVersion: "0.1",
         showBanner: unityShowBanner,
       };
