@@ -129,6 +129,11 @@ script.onload = () => {
       myInstance.SendMessage("Hook", "ToggleWebGLInputs");
       
     });
+
+    document.getElementById("scaleInputX").onfocus = () => {
+      console.log("focus input x");
+    }
+
   });
 };
 document.body.appendChild(script);
