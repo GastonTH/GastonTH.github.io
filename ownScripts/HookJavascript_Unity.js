@@ -90,6 +90,8 @@ script.onload = () => {
 
   createUnityInstance(canvas, config, (progress) => { }).then((unityInstance) => {
 
+    var canWritheInputs = true;
+
     var myInstance = unityInstance;
 
     document.getElementById("red").addEventListener("click", () => {
@@ -125,14 +127,12 @@ script.onload = () => {
     });
 
     document.getElementById("toggle").addEventListener("click", () => {
+      canWritheInputs = !canWritheInputs;
+      console.log("TOGGLED");
 
       myInstance.SendMessage("Hook", "ToggleWebGLInputs");
       
     });
-
-    document.getElementById("scaleInputX").onfocus = () => {
-      console.log("focus input x");
-    }
 
   });
 };
