@@ -4,30 +4,102 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | webIntegration2022</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="stylesheet" href="ownStyles/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body style="text-align: center">
-    <canvas id="unity-canvas" width=960 height=600 style="width: 960px; height: 600px; background: #231F20"></canvas>
-    <script src="Build/GastonTH.github.io.loader.js"></script>
-    <script>
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-      }
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">webIntegration2022</div>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        Change color
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <button id="red" class="scaleButton">Change to red</button>
+        </li>
+        <li class="list-group-item">
+          <button id="green" class="scaleButton">Change to green</button>
+        </li>
+        <li class="list-group-item">
+          <button id="blue" class="scaleButton">Change to blue</button>
+        </li>
+        <li class="list-group-item">
+          <button id="purple" class="scaleButton">Change to purple</button>
+        </li>
+      </ul>
+    </div>
 
-      createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/GastonTH.github.io.data",
-        frameworkUrl: "Build/GastonTH.github.io.framework.js",
-        codeUrl: "Build/GastonTH.github.io.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "webIntegration2022",
-        productVersion: "0.1",
-        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-      });
-    </script>
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        Transform
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <button id="rotate" class="scaleButton">Rotate</button>
+        </li>
+        <li class="list-group-item">
+          <button id="clear" class="scaleButton">Clear</button>
+        </li>
+        <li class="list-group-item">
+          <button id="scale" class="scaleButton">Scale</button>
+        </li>
+        <li class="list-group-item">
+          <input id="scaleInputX" class="scaleInput" type="text" placeholder="Enter scale value X"></br>
+          <input id="scaleInputY" class="scaleInput" type="text" placeholder="Enter scale value Y"></br>
+          <input id="scaleInputZ" class="scaleInput" type="text" placeholder="Enter scale value Z"></br>
+        </li>
+        <li class="list-group-item">
+          <button id="scaleInputs" class="scaleButton">ScaleWithInp</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        Tirador
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <select style="margin-top: 10px; margin-left: 10px; " name="cars" id="cars">
+            <option value="t1">tipo 1</option>
+            <option value="t2">tipo 2</option>
+            <option value="t3">tipo 3</option>
+          </select>
+          <select style="margin-top: 10px; margin-left: 10px; " name="cars" id="cars">
+            <option value="arriba-izq">Arriba izquierda</option>
+            <option value="arriba-m">Arriba Medio</option>
+            <option value="arriba-der">Arriba derecha</option>
+            <option value ="izquierda">Izquierda</option>
+            <option value="medio">Medio</option>
+            <option value ="derecha">Derecha</option>
+            <option value="abajo-izq">Abajo izquierda</option>
+            <option value="abajo-m">Abajo medio</option>
+            <option value="abajo-der">Abajo derecha</option>
+          </select>
+          
+          
+        </li>
+      </ul>
+    </div>
+
+    <script type="text/javascript" src="ownScripts/HookJavascript_Unity.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
